@@ -1,1 +1,13 @@
+
+
+02-07-2019
+ALTER TABLE `nso_product` CHANGE `title` `name` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
+
+
+
+
 http://demo.interface.club/limitless/demo/bs4/Template/layout_1/LTR/default/full/index.html#
+
+
+
+

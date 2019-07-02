@@ -14,6 +14,7 @@ class ProductController extends CI_Controller
     
     public function products(){
         $data['title'] = "Product";
+
         $data['products'] = $this->CommonModel->get_data_list('nso_product','createdAt','DESC');
         $data['mainContent'] = $this->load->view('admin/product/product_list.php', $data, true);
         $this->load->view('admin_master_templete', $data);
@@ -21,6 +22,8 @@ class ProductController extends CI_Controller
 
     public function addproduct(){
         $data['title'] = "Add Product";
+        $data['brands'] = $this->CommonModel->get_data_list_by_single_column('nso_allsetup','type',1);
+        $data['productCategory'] = $this->CommonModel->get_data_list_by_single_column('nso_allsetup','type',2);
         $data['mainContent'] = $this->load->view('admin/product/product_add.php', $data, true);
         $this->load->view('admin_master_templete', $data);
     }

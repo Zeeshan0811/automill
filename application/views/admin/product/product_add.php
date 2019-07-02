@@ -2,7 +2,7 @@
 <div class="page-header page-header-light">
     <div class="page-header-content header-elements-md-inline">
         <div class="page-title d-flex">
-            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Product</span> - Add</h4>
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Product</span> - Add New</h4>
             <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
         </div>
 
@@ -50,12 +50,11 @@
                                 <fieldset>
                                     <div class="form-group">
                                         <label>Product Name:</label>
-                                        <input type="text" class="form-control" placeholder="Please Enter Product Name">
+                                        <input type="text" class="form-control" name="name" placeholder="Please Enter Product Name">
                                     </div>
                                     <div class="form-group">
                                         <label>Brand:</label>
-                                        <select data-placeholder="Select Brand of Product"
-                                            class="form-control form-control-select2" data-fouc="">
+                                        <select data-placeholder="Select Brand of Product" class="form-control form-control-select2" name="brand" data-fouc="">
                                             <option></option>
                                             <option value="Cambodia">Cambodia</option>
                                             <option value="Cameroon">Cameroon</option>
@@ -64,10 +63,10 @@
                                         </select>
                                     </div>
                                     
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <label>Image:</label>
                                         <input type="file" class="form-input-styled" data-fouc="">
-                                    </div>
+                                    </div> -->
                                 </fieldset>
                             </div>
 
@@ -75,8 +74,7 @@
                                 <fieldset>
                                     <div class="form-group">
                                         <label>Category:</label>
-                                        <select data-placeholder="Select Product Category"
-                                            class="form-control form-control-select2" data-fouc="">
+                                        <select data-placeholder="Select Product Category" name="category" class="form-control form-control-select2" data-fouc="">
                                             <option></option>
                                             <optgroup label="Alaskan/Hawaiian Time Zone">
                                                 <option value="AK">Alaska</option>
@@ -106,14 +104,13 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Size:</label>
-                                        <input type="text" class="form-control" placeholder="Product Size">
+                                        <input type="text" class="form-control" name="size" placeholder="Product Size">
                                     </div>
                                     
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <label>Additional message:</label>
-                                        <textarea rows="5" cols="5" class="form-control"
-                                            placeholder="Enter your message here"></textarea>
-                                    </div>
+                                        <textarea rows="5" cols="5" class="form-control" name="" placeholder="Enter your message here"></textarea>
+                                    </div> -->
                                 </fieldset>
                             </div>
                         </div>

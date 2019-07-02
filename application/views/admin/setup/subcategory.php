@@ -25,7 +25,7 @@
 
         <div class="header-elements d-none">
             <div class="breadcrumb justify-content-center">
-                <a href="#" class="breadcrumb-elements-item" data-toggle="modal" data-target="#modal_theme_primary">
+                <a href="#" class="breadcrumb-elements-item" data-toggle="modal" data-target="#modal_theme_add">
                     <i class="icon-add mr-2"></i>
                     Add New
                 </a>
@@ -48,7 +48,7 @@
 							<tr>
 								<th>SL.</th>
 								<th>Category</th>
-								<th>Sub Category</th>
+								<th>Title</th>
 								<th class="text-center">Actions</th>
 							</tr>
 						</thead>
@@ -56,7 +56,7 @@
                             <?php $i=0; foreach($subcategories as $subcategory){ $i++; ?>
 							<tr>
                                 <td><?php echo $i; ?></td>
-								<td><?php echo $subcategory->category; ?></td>
+								<td><?php echo $subcategory->cat_title; ?></td>
 								<td><?php echo $subcategory->title; ?></td>
 								<td class="text-center">
 									<div class="list-icons">
@@ -65,8 +65,8 @@
 												<i class="icon-menu9"></i>
 											</a>
 											<div class="dropdown-menu dropdown-menu-right">
-												<a href="#" class="dropdown-item"><i class="icon-pencil5"></i> Edit</a>
-												<a href="#" class="dropdown-item"><i class="icon-bin"></i> Delete</a>
+												<a href="#" class="dropdown-item" onclick='editItem(<?php echo json_encode($subcategory);?>)' data-toggle="modal" data-target="#modal_theme_edit"><i class="icon-pencil5"></i> Edit</a>
+												<a href="<?php echo base_url('SetupController/delSubCat/'.$subcategory->unitId) ?>" class="dropdown-item"><i class="icon-bin"></i> Delete</a>
 											</div>
 										</div>
 									</div>
@@ -80,30 +80,32 @@
         </div>
     </div>
     <!-- /dashboard content -->
-
 </div>
 <!-- /content area -->
 
 <!-- Primary modal -->
-<div id="modal_theme_primary" class="modal fade" tabindex="-1">
+<div id="modal_theme_add" class="modal fade" >
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-primary">
                 <h6 class="modal-title">New Sub-Category</h6>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-
             <div class="modal-body">
-                <form action="<?php echo base_url('category'); ?>">
+                <form action="<?php echo base_url('subcategory'); ?>"  enctype="multipart/form-data" method="POST">
                     <div class="form-group">
-                        <label>Sub Category Title:</label>
-                        <input type="text" class="form-control" name="cat_title" placeholder="Title of the sub category" required>
-                    </div>
+                        <label>Category</label>
+                        <select class="form-control select-search" data-fouc="" name="type" required>
+                            <?php foreach($categories as $category){ ?>
+                                <option value="<?php echo $category->cat_id; ?>"><?php echo $category->cat_title; ?></option>
+                            <?php } ?>
+                        </select>
+                     
+                    </div>           
                     <div class="form-group">
-                        <label>Description:</label>
-                        <textarea rows="5" cols="5" class="form-control" name="cat_description" placeholder="Note about the sub category" required></textarea>
+                        <label>Title:</label>
+                        <input type="text" class="form-control" name="title" placeholder="Title of the sub category" required>
                     </div>
-
                     <div class="row">
                         <div class="col-md-6 text-left">
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -118,4 +120,52 @@
     </div>
 </div>
 <!-- /primary modal -->
+
+<!-- Edit modal -->
+<div id="modal_theme_edit" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h6 class="modal-title">Edit Category</h6>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <form action="<?php echo base_url('subcategory'); ?>"  enctype="multipart/form-data" method="POST">
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select class="form-control select-search editField1" data-fouc="" name="type" required>
+                            <?php foreach($categories as $category){ ?>
+                                <option value="<?php echo $category->cat_id; ?>"><?php echo $category->cat_title; ?></option>
+                            <?php } ?>
+                        </select>
+                     
+                    </div>           
+                    <div class="form-group">
+                        <label>Title:</label>
+                        <input type="text" class="form-control editField2" name="title" placeholder="Title of the sub category" required>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-left">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                        <div class="col-md-6 text-right"> 
+                            <input type="hidden" class="editField3" name="subcatId">   
+                            <button type="submit" class="btn btn-primary">Submit <i class="icon-paperplane ml-2"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Edit modal -->
+
+<script>
+    function editItem(data){
+        $('.editField1').val(data.type).trigger('change');
+        $('.editField2').val(data.title);
+        $('.editField3').val(data.cat_id);
+    }
+</script>
 

@@ -13,8 +13,10 @@ $route['category'] = 'SetupController/category';
 $route['subcategory'] = 'SetupController/subcategory';
 
 
-$route['products'] = 'SetupController/products';
-$route['addproduct'] = 'SetupController/addproduct';
+$route['products'] = 'ProductController/products';
+$route['addproduct'] = 'ProductController/addproduct';
+
+
 $route['production'] = 'SetupController/production';
 $route['producttransfer'] = 'SetupController/producttransfer';
 $route['totalinventory'] = 'SetupController/totalinventory';

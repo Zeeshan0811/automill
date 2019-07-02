@@ -27,11 +27,11 @@ var DatatableAdvanced = function() {
         // Setting datatable defaults
         $.extend( $.fn.dataTable.defaults, {
             autoWidth: false,
-            columnDefs: [{ 
-                orderable: false,
-                width: 100,
-                targets: [ 5 ]
-            }],
+            // columnDefs: [{ 
+            //     orderable: false,
+            //     width: 100,
+            //     targets: [ 5 ]
+            // }],
             dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
             language: {
                 search: '<span>Filter:</span> _INPUT_',

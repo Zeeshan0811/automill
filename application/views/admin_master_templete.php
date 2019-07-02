@@ -21,13 +21,18 @@
 	<script src="<?php echo site_url('assets/js/main/jquery.min.js'); ?>"></script>
 	<script src="<?php echo site_url('assets/js/main/bootstrap.bundle.min.js'); ?>"></script>
 	<script src="<?php echo site_url('assets/js/plugins/loaders/blockui.min.js'); ?>"></script>
-	<!-- /core JS files -->
-
+    <!-- /core JS files -->
+    
+    <!-- Javascript Encription -->
+    <script src="<?php echo site_url('assets/js/main/aes.js'); ?>"></script>
+    <!-- /Javascript Encription -->
+    
 	<!-- Theme JS files -->
 	<script src="<?php echo site_url('assets/js/plugins/visualization/d3/d3.min.js'); ?>"></script>
 	<script src="<?php echo site_url('assets/js/plugins/visualization/d3/d3_tooltip.js'); ?>"></script>
 	<script src="<?php echo site_url('assets/js/plugins/forms/styling/switchery.min.js'); ?>"></script>
 	<script src="<?php echo site_url('assets/js/plugins/forms/selects/bootstrap_multiselect.js'); ?>"></script>
+	<script src="<?php echo site_url('assets/js/plugins/extensions/jquery_ui/interactions.min.js'); ?>"></script>
     <script src="<?php echo site_url('assets/js/plugins/forms/selects/select2.min.js'); ?>"></script>
     <script src="<?php echo site_url('assets/js/plugins/forms/styling/uniform.min.js'); ?>"></script>
 	<script src="<?php echo site_url('assets/js/plugins/ui/moment/moment.min.js'); ?>"></script>
@@ -35,8 +40,9 @@
     <script src="<?php echo site_url('assets/js/plugins/notifications/bootbox.min.js'); ?>"></script>
     
 	<script src="<?php echo site_url('assets/js/plugins/datatables/datatables.min.js'); ?>"></script>
-    <script src="<?php echo site_url('assets/js/plugins/datatables/datatables_basic.js'); ?>"></script>
-    
+    <script src="<?php echo site_url('assets/js/pages/datatables_basic.js'); ?>"></script>
+    <script src="<?php echo site_url('assets/js/pages/datatables_advanced.js'); ?>"></script>
+
     <script src="<?php echo site_url('assets/js/plugins/pickers/daterangepicker.js'); ?>"></script>
 	<script src="<?php echo site_url('assets/js/plugins/pickers/anytime.min.js'); ?>"></script>
 	<script src="<?php echo site_url('assets/js/plugins/pickers/pickadate/picker.js'); ?>"></script>
@@ -48,8 +54,9 @@
 	<script src="<?php echo site_url('assets/js/pages/dashboard.js'); ?>"></script>
     <script src="<?php echo site_url('assets/js/pages/components_modals.js'); ?>"></script>
     <script src="<?php echo site_url('assets/js/pages/form_layouts.js'); ?>"></script>
+    <script src="<?php echo site_url('assets/js/pages/form_select2.js'); ?>"></script>
     <script src="<?php echo site_url('assets/js/pages/picker_date.js'); ?>"></script>
-    <script src="<?php echo site_url('assets/js/pages/datatables_advanced.js'); ?>"></script>
+
     
 
     <script src="<?php echo site_url('assets/js/custom.js'); ?>"></script>
@@ -104,7 +111,6 @@
 
             jQuery(function($){
                 var url = "<?php echo current_url(); ?>";
-                console.log( url);
                 $('.nav-sidebar a').filter(function(){
                 return $(this).attr('href').toLowerCase() == url;
                 }).addClass('active').closest('.nav-item-submenu').addClass('nav-item-open').find('.nav-group-sub').css({

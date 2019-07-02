@@ -80,7 +80,7 @@ class Common_model extends CI_Model {
     
     
     // get all data list of a database table
-    function get_data_list($table_name, $order_column_name = NULL, $order = NULL, $start_limit = NULL, $per_page = NULL , $where = NULL) {
+    function get_data_list($table_name, $order_column_name = NULL, $order = NULL, $start_limit = NULL, $per_page = NULL , $where = NULL, $sorting= NULL) {
         if (isset($order_column_name) && isset($order))
             $this->db->order_by($order_column_name, $order);
         if (isset($where))
@@ -94,20 +94,28 @@ class Common_model extends CI_Model {
     }
 
 
-    // Get Single data 
+    // Get Single row 
     function table_info($table, $column_name, $column_value) {
         $query = $this->db->get_where($table, array($column_name => $column_value));
         return $query->row();
     }
 
+    // Get Single cell 
+    function table_info_data($select, $table, $column_name, $column_value) {
+        $query = $this->db->select($select)->get_where($table, array($column_name => $column_value));
+        return $query;
+    }
+
+
+
 
     // Get data list with joining table 
-    function get_data_list_with_join($table_name, $join_to, $field_name, $match_to, $sorting = [], $groupBy= null, $where = null){
+    function get_data_list_with_join($table_name, $join_to, $field_name, $match_to, $sortingField = NULL, $sortingType = NULL , $groupBy= null, $where = null){
         $this->db->select('*');
         $this->db->from($table_name);
         $this->db->join($join_to, $join_to.'.'.$field_name .'='. $table_name.'.'.$match_to);
-        if (!empty($sorting)){
-            $this->db->order_by($sorting['field'],$sorting['type']);
+        if (!empty($sortingType)){
+            $this->db->order_by($sortingField,$sortingType);
         }
         if (isset($groupBy))
             $this->db->group_by($groupBy);

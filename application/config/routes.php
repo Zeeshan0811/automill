@@ -13,8 +13,12 @@ $route['category'] = 'SetupController/category';
 $route['subcategory'] = 'SetupController/subcategory';
 
 
+
+
+
 $route['products'] = 'ProductController/products';
 $route['addproduct'] = 'ProductController/addproduct';
+$route['editproduct/(:any)'] = 'ProductController/editproduct/$1';
 
 
 $route['production'] = 'SetupController/production';
@@ -22,14 +26,14 @@ $route['producttransfer'] = 'SetupController/producttransfer';
 $route['totalinventory'] = 'SetupController/totalinventory';
 $route['inventoryhistory'] = 'SetupController/inventoryhistory';
 
-
-
+// Godown
+// $route['godowns'] = 'SetupController/godowns';
+// $route['addgodown'] = 'SetupController/addgodown';
 
 $route['trucks'] = 'SetupController/trucks';
 $route['addtruck'] = 'SetupController/addtruck';
 
-$route['godowns'] = 'SetupController/godowns';
-$route['addgodown'] = 'SetupController/addgodown';
+
 
 
 $route['accounts'] = 'SetupController/accounts';

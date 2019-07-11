@@ -66,7 +66,7 @@
 											</a>
 											<div class="dropdown-menu dropdown-menu-right">
 												<a href="#" class="dropdown-item" onclick='editItem(<?php echo json_encode($subcategory);?>)' data-toggle="modal" data-target="#modal_theme_edit"><i class="icon-pencil5"></i> Edit</a>
-												<a href="<?php echo base_url('SetupController/delSubCat/'.$subcategory->unitId) ?>" class="dropdown-item"><i class="icon-bin"></i> Delete</a>
+												<a href="<?php echo base_url('SetupController/delSubCat/'.$subcategory->unitId) ?>" onclick="return confirm('are you sure?')" class="dropdown-item"><i class="icon-bin"></i> Delete</a>
 											</div>
 										</div>
 									</div>

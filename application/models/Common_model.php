@@ -326,19 +326,30 @@ class Common_model extends CI_Model {
         $this->db->order_by($order_column_name, $order);
         if (isset($start_limit))
         $this->db->limit($per_page, $start_limit);
-        if (!empty($sorting))
-        $this->db->order_by($sorting['field'], $sorting['type']);
+        // if (!empty($sorting))
+        // $this->db->order_by($sorting['field'], $sorting['type']);
         
         return $this->db->get($table_name)->row();
     }
 
-    function get_data_list_join() {
-        $this->db->select('baseit_generalledger.diagoid,baseit_diagonostic.diagonosticName');
-        $this->db->from('baseit_generalledger');
-        $this->db->where('baseit_generalledger.formId', 11);
-        $this->db->join('baseit_diagonostic', 'baseit_diagonostic.diagonosticId = baseit_generalledger.diagoid');
-        $this->db->order_by('baseit_diagonostic.diagonosticName', 'ASC');
-        $this->db->group_by('baseit_generalledger.diagoid');
+
+
+
+    function get_product_list() {
+        $this->db->select('*, cat_table.title as category_title, brand_table.title as brand_title');
+        $this->db->from('nso_product');
+        $this->db->join('nso_allsetup as cat_table', 'cat_table.unitId = nso_product.category');
+        $this->db->join('nso_allsetup as brand_table', 'brand_table.unitId = nso_product.brand');
+        $this->db->order_by('nso_product.createdAt', 'DESC');
         return $this->db->get()->result();
     }
+
+
+
+
+
+
+
+
+
 }

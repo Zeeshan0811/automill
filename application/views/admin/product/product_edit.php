@@ -2,7 +2,7 @@
 <div class="page-header page-header-light">
     <div class="page-header-content header-elements-md-inline">
         <div class="page-title d-flex">
-            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Product</span> - Add New</h4>
+            <h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Product</span> - Edit</h4>
             <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
         </div>
 
@@ -16,7 +16,7 @@
         <div class="d-flex">
             <div class="breadcrumb">
                 <a href="index.html" class="breadcrumb-item"><i class="icon-home2 mr-2"></i> Dashboard</a>
-                <span class="breadcrumb-item active">Add Product</span>
+                <span class="breadcrumb-item active">Edit Product</span>
             </div>
 
             <a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
@@ -41,7 +41,7 @@
             <!-- Hover rows -->
             <div class="card">
                 <div class="card-body">
-                    <form action="<?php echo base_url('addproduct'); ?>" enctype="multipart/form-data" method="POST" >
+                    <form action="<?php echo base_url('editproduct/'.$product->pro_id); ?>" enctype="multipart/form-data" method="POST" >
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">

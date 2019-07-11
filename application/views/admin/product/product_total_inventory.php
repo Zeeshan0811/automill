@@ -42,46 +42,48 @@
     <div class="row justify-content-md-center">
         <div class="col-md-12">
             <!-- Hover rows -->
-				<div class="card">
-					<table class="table datatable-basic table-hover">
-						<thead>
-							<tr>
-                                <th>SL.</th>
-                                <th>SKU</th>
-                                <th>Title</th>
-								<th>Brand</th>
-								<th>Size</th>
-								<th>Storage</th>
-								<th class="text-center">Actions</th>
-							</tr>
-						</thead>
-						<tbody>
-                            <?php $i=0; foreach($products as $product){ $i++; ?>
-							<tr>
+            <div class="card">
+                <table class="table datatable-basic table-hover">
+                    <thead>
+                        <tr>
+                            <th>SL.</th>
+                            <th>SKU</th>
+                            <th>Title</th>
+                            <th>Brand</th>
+                            <th>Size</th>
+                            <th>Storage</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $i = 0;
+                        foreach ($products as $product) {
+                            $i++; ?>
+                            <tr>
                                 <td><?php echo $i; ?></td>
-								<td><?php echo $product->title; ?></td>
-								<td><?php echo $product->title; ?></td>
-								<td><?php echo $product->title; ?></td>
-								<td><?php echo $product->title; ?></td>
-								<td class="text-center">
-									<div class="list-icons">
-										<div class="dropdown">
-											<a href="#" class="list-icons-item" data-toggle="dropdown">
-												<i class="icon-menu9"></i>
-											</a>
-											<div class="dropdown-menu dropdown-menu-right">
-												<a href="#" class="dropdown-item"><i class="icon-pencil5"></i> Edit</a>
-												<a href="#" class="dropdown-item"><i class="icon-bin"></i> Delete</a>
-											</div>
-										</div>
-									</div>
-								</td>
+                                <td><?php echo $product->title; ?></td>
+                                <td><?php echo $product->title; ?></td>
+                                <td><?php echo $product->title; ?></td>
+                                <td><?php echo $product->title; ?></td>
+                                <td class="text-center">
+                                    <div class="list-icons">
+                                        <div class="dropdown">
+                                            <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                                <i class="icon-menu9"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a href="#" class="dropdown-item"><i class="icon-pencil5"></i> Edit</a>
+                                                <a href="#" class="dropdown-item"><i class="icon-bin"></i> Delete</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
-                            <?php } ?>
-						</tbody>
-					</table>
-				</div>
-				<!-- /hover rows -->
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /hover rows -->
         </div>
     </div>
     <!-- /dashboard content -->

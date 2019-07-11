@@ -68,6 +68,21 @@ class SetupController extends CI_Controller
 
 
 
+    // public function godowns(){
+    //     $data['title'] = "Godown Lists";
+    //     $data['products'] = $this->CommonModel->get_data_list('nso_product','createdAt','DESC');
+    //     $data['mainContent'] = $this->load->view('admin/godown/godown_list.php', $data, true);
+    //     $this->load->view('admin_master_templete', $data);
+    // }
+
+    // public function addgodown(){
+    //     $data['title'] = "Add Godown";
+    //     $data['mainContent'] = $this->load->view('admin/godown/godown_add.php', $data, true);
+    //     $this->load->view('admin_master_templete', $data);
+    // }
+
+
+
 
 
 
@@ -85,18 +100,7 @@ class SetupController extends CI_Controller
         $this->load->view('admin_master_templete', $data);
     }
 
-    public function godowns(){
-        $data['title'] = "Godown Lists";
-        $data['products'] = $this->CommonModel->get_data_list('nso_product','createdAt','DESC');
-        $data['mainContent'] = $this->load->view('admin/godown/godown_list.php', $data, true);
-        $this->load->view('admin_master_templete', $data);
-    }
 
-    public function addgodown(){
-        $data['title'] = "Add Godown";
-        $data['mainContent'] = $this->load->view('admin/godown/godown_add.php', $data, true);
-        $this->load->view('admin_master_templete', $data);
-    }
 
     public function accounts(){
         $data['title'] = "Account List";

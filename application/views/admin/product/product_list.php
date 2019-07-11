@@ -47,10 +47,12 @@
 						<thead>
 							<tr>
                                 <th>SL.</th>
-                                <th>SKU</th>
+                                <th>Category</th>
                                 <th>Title</th>
-								<th>Brand</th>
+                                <th>Brand</th>
 								<th>Size</th>
+								<th>Pruchase Price</th>
+								<th>Sell Price</th>
 								<th class="text-center">Actions</th>
 							</tr>
 						</thead>
@@ -58,9 +60,12 @@
                             <?php $i=0; foreach($products as $product){ $i++; ?>
 							<tr>
                                 <td><?php echo $i; ?></td>
-								<td><?php echo $product->title; ?></td>
-								<td><?php echo $product->title; ?></td>
-								<td><?php echo $product->title; ?></td>
+								<td><?php echo $product->category_title; ?></td>
+                                <td><?php echo $product->name; ?></td>
+								<td><?php echo $product->brand_title; ?></td>
+								<td><?php echo $product->size; ?></td>
+								<td><?php echo $product->purchase_price; ?></td>
+								<td><?php echo $product->sale_price; ?></td>
 								<td class="text-center">
 									<div class="list-icons">
 										<div class="dropdown">
@@ -68,8 +73,8 @@
 												<i class="icon-menu9"></i>
 											</a>
 											<div class="dropdown-menu dropdown-menu-right">
-												<a href="#" class="dropdown-item"><i class="icon-pencil5"></i> Edit</a>
-												<a href="#" class="dropdown-item"><i class="icon-bin"></i> Delete</a>
+												<a href="<?php echo base_url('editproduct/'.$product->pro_id) ?>" class="dropdown-item"><i class="icon-pencil5"></i> Edit</a>
+												<a href="<?php echo base_url('ProductController/delProduct/'.$product->pro_id) ?>" onclick="return confirm('are you sure?')" class="dropdown-item"><i class="icon-bin"></i> Delete</a>
 											</div>
 										</div>
 									</div>
